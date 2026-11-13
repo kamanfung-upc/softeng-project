@@ -15,4 +15,7 @@ public abstract class Content {
 
     /** The content as the user wrote it. */
     public abstract String getText();
+
+    /** The value of the content as a number. */
+    public abstract double getNumber(Spreadsheet spreadsheet);
 }

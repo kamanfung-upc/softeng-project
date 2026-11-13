@@ -14,4 +14,9 @@ public class NumericalContent extends Content {
         }
         return String.valueOf(number);
     }
+
+    @Override
+    public double getNumber(Spreadsheet spreadsheet) {
+        return number;
+    }
 }

@@ -20,8 +20,9 @@ class SpreadsheetTest {
     }
 
     @Test
-    void emptyCellHasNoContent() {
+    void emptyCellHasNoContentAndIsZero() {
         Spreadsheet spreadsheet = new Spreadsheet();
         assertNull(spreadsheet.getContent(Coordinate.parse("Z9")));
+        assertEquals(0, spreadsheet.getNumber(Coordinate.parse("Z9")));
     }
 }
