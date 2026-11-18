@@ -71,6 +71,7 @@ class ExpressionTest {
         set("B1", "4");
         spreadsheet.setContent(Coordinate.parse("A1"),
                 new FormulaContent("=C1+C2", new BinaryOperation('+', cell("C1"), cell("C2"))));
+
         Expression c3 = new BinaryOperation('+', cell("A1"), cell("B1"));
         assertEquals(3, spreadsheet.getNumber(Coordinate.parse("A1")));
         assertEquals(7, c3.evaluate(spreadsheet));
@@ -114,9 +115,11 @@ class ExpressionTest {
         set("A2", "1");
         set("B2", "5");
         set("C1", "10");
+
         Expression inner = new FunctionCall(Function.MAX, List.of(cell("A2"), cell("B2")));
         Expression e = new FunctionCall(Function.SUMA,
                 List.of(new Range(Coordinate.parse("A2"), Coordinate.parse("B2")), inner, cell("C1"), number(27)));
+        
         assertEquals(1 + 5 + 5 + 10 + 27, e.evaluate(spreadsheet));
     }
 }

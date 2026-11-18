@@ -18,6 +18,7 @@ public class BinaryOperation implements Expression {
     public double evaluate(Spreadsheet spreadsheet) {
         double a = left.evaluate(spreadsheet);
         double b = right.evaluate(spreadsheet);
+
         switch (operator) {
             case '+': return a + b;
             case '-': return a - b;
@@ -26,6 +27,7 @@ public class BinaryOperation implements Expression {
                 if (b == 0) {
                     throw new SpreadsheetException("Division by zero");
                 }
+                
                 return a / b;
             default: throw new SpreadsheetException("Unknown operator: " + operator);
         }

@@ -8,6 +8,7 @@ public class NumericalContent extends Content {
     public NumericalContent(double number) {
         this.number = number;
     }
+    
 
     @Override
     public String getText() {

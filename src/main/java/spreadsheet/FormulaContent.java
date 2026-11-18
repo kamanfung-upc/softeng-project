@@ -25,17 +25,14 @@ public class FormulaContent extends Content {
         this.root = root;
     }
 
-    /** The value computed from the formula, or null if it has none. */
     public Double getValue() {
         return value;
     }
 
-    /** The error of the formula, or null if it has none. */
     public String getError() {
         return error;
     }
 
-    /** A formula has a value or an error, never both. */
     public void setValue(double value) {
         this.value = value;
         this.error = null;
@@ -56,6 +53,7 @@ public class FormulaContent extends Content {
         if (root == null) {
             throw new SpreadsheetException("Formula not evaluated: " + text);
         }
+        
         return root.evaluate(spreadsheet);
     }
 }

@@ -17,6 +17,7 @@ public class TextContent extends Content {
         if (text.isEmpty()) {
             return 0;
         }
+        
         try {
             return Double.parseDouble(text);
         } catch (NumberFormatException e) {

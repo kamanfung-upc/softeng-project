@@ -11,6 +11,7 @@ class SpreadsheetTest {
     void setsAndViewsTheContentOfACell() {
         Spreadsheet spreadsheet = new Spreadsheet();
         Coordinate a1 = Coordinate.parse("A1");
+        
         spreadsheet.setContent(a1, Content.of("=C1+C2"));
         assertEquals("=C1+C2", spreadsheet.getContent(a1).getText());
 

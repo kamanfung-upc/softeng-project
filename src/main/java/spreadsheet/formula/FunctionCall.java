@@ -17,12 +17,15 @@ public class FunctionCall implements Expression {
     @Override
     public double evaluate(Spreadsheet spreadsheet) {
         List<Double> values = new ArrayList<>();
+        
         for (Argument argument : arguments) {
             values.addAll(argument.values(spreadsheet));
         }
+
         if (values.isEmpty()) {
             throw new SpreadsheetException(function + " has no values");
         }
+
         return function.apply(values);
     }
 }

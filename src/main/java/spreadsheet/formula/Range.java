@@ -16,22 +16,27 @@ public class Range implements Argument {
 
     public List<Coordinate> getCoordinates() {
         List<Coordinate> coordinates = new ArrayList<>();
+
         for (int col = upperLeft.getColumnIndex(); col <= bottomRight.getColumnIndex(); col++) {
             for (int row = upperLeft.getRow(); row <= bottomRight.getRow(); row++) {
                 coordinates.add(new Coordinate(Coordinate.columnName(col), row));
             }
         }
+
         return coordinates;
     }
 
     @Override
     public List<Double> values(Spreadsheet spreadsheet) {
         List<Double> values = new ArrayList<>();
+
         for (Coordinate coordinate : getCoordinates()) {
             if (spreadsheet.getContent(coordinate) != null) {
                 values.add(spreadsheet.getNumber(coordinate));
             }
         }
+
+        
         return values;
     }
 }
