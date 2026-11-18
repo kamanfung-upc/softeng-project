@@ -6,11 +6,10 @@ public abstract class Content {
         if (text.startsWith("=")) {
             return new FormulaContent(text);
         }
-        try {
+        if (text.matches("-?\\d+(\\.\\d+)?")) {
             return new NumericalContent(Double.parseDouble(text));
-        } catch (NumberFormatException e) {
-            return new TextContent(text);
         }
+        return new TextContent(text);
     }
 
     /** The content as the user wrote it. */

@@ -1,5 +1,7 @@
 package spreadsheet;
 
+import java.math.BigDecimal;
+
 public class NumericalContent extends Content {
     private final double number;
 
@@ -9,10 +11,7 @@ public class NumericalContent extends Content {
 
     @Override
     public String getText() {
-        if (number == Math.rint(number)) {
-            return String.valueOf((long) number);
-        }
-        return String.valueOf(number);
+        return BigDecimal.valueOf(number).stripTrailingZeros().toPlainString();
     }
 
     @Override

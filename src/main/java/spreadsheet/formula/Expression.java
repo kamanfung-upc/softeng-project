@@ -3,11 +3,11 @@ package spreadsheet.formula;
 import java.util.List;
 import spreadsheet.Spreadsheet;
 
-public interface Expression {
+public interface Expression extends Argument {
 
     double evaluate(Spreadsheet spreadsheet);
 
-    /** The values this expression contributes as a function argument. */
+    @Override
     default List<Double> values(Spreadsheet spreadsheet) {
         return List.of(evaluate(spreadsheet));
     }

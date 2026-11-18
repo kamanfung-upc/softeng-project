@@ -50,12 +50,12 @@ public class S2VFile {
                 lastRow = Math.max(lastRow, cell.getCoordinate().getRow());
             }
         }
-        List<String> lines = new ArrayList<>();
+        StringBuilder text = new StringBuilder();
         for (int row = 1; row <= lastRow; row++) {
-            lines.add(line(spreadsheet, row));
+            text.append(line(spreadsheet, row)).append('\n');
         }
         try {
-            Files.write(path, lines);
+            Files.writeString(path, text);
         } catch (IOException e) {
             throw new SpreadsheetException("Cannot write file: " + path);
         }

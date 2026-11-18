@@ -7,9 +7,9 @@ import spreadsheet.SpreadsheetException;
 
 public class FunctionCall implements Expression {
     private final Function function;
-    private final List<Expression> arguments;
+    private final List<Argument> arguments;
 
-    public FunctionCall(Function function, List<Expression> arguments) {
+    public FunctionCall(Function function, List<Argument> arguments) {
         this.function = function;
         this.arguments = arguments;
     }
@@ -17,7 +17,7 @@ public class FunctionCall implements Expression {
     @Override
     public double evaluate(Spreadsheet spreadsheet) {
         List<Double> values = new ArrayList<>();
-        for (Expression argument : arguments) {
+        for (Argument argument : arguments) {
             values.addAll(argument.values(spreadsheet));
         }
         if (values.isEmpty()) {

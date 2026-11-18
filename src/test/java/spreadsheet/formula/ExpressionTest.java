@@ -85,7 +85,7 @@ class ExpressionTest {
 
     @Test
     void functionsWithNumbers() {
-        List<Expression> args = List.of(number(1), number(2), number(3));
+        List<Argument> args = List.of(number(1), number(2), number(3));
         assertEquals(6, new FunctionCall(Function.SUMA, args).evaluate(spreadsheet));
         assertEquals(1, new FunctionCall(Function.MIN, args).evaluate(spreadsheet));
         assertEquals(3, new FunctionCall(Function.MAX, args).evaluate(spreadsheet));

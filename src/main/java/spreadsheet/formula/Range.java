@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import spreadsheet.Coordinate;
 import spreadsheet.Spreadsheet;
-import spreadsheet.SpreadsheetException;
 
-public class Range implements Expression {
+public class Range implements Argument {
     private final Coordinate upperLeft;
     private final Coordinate bottomRight;
 
@@ -23,11 +22,6 @@ public class Range implements Expression {
             }
         }
         return coordinates;
-    }
-
-    @Override
-    public double evaluate(Spreadsheet spreadsheet) {
-        throw new SpreadsheetException("A range can only be a function argument: " + upperLeft + ":" + bottomRight);
     }
 
     @Override
